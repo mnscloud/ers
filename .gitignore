@@ -1,0 +1,26 @@
+# Maven build output (every module)
+target/
+
+# Logs
+logs/
+*.log
+
+# Local secrets - keep the committed templates (.env.example, .env.production, etc.)
+.env
+deploy_vps.md
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# IDE
+.idea/
+*.iml
+
+# Claude Code local session config (personal permission grants, not shared)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
