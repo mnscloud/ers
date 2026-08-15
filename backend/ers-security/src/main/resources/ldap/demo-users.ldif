@@ -1,0 +1,100 @@
+# Demo directory for the embedded test LDAP server (local dev only).
+# Passwords below are throwaway credentials for this in-memory test server - not real secrets.
+# Note: the root "dc=ers,dc=local" entry is NOT defined here - UnboundIdContainer creates it
+# automatically from its defaultPartitionSuffix constructor arg, and re-declaring it in the LDIF
+# causes a duplicate-entry error at startup.
+
+dn: ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=ldap.admin,ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: ldap.admin
+cn: Laura Admin
+sn: Admin
+mail: ldap.admin@ers.local
+userPassword: ldap123
+
+dn: uid=ldap.maker,ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: ldap.maker
+cn: Mike Maker
+sn: Maker
+mail: ldap.maker@ers.local
+userPassword: ldap123
+
+dn: uid=ldap.checker,ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: ldap.checker
+cn: Carol Checker
+sn: Checker
+mail: ldap.checker@ers.local
+userPassword: ldap123
+
+dn: uid=ldap.compliance,ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: ldap.compliance
+cn: Diana Compliance
+sn: Compliance
+mail: ldap.compliance@ers.local
+userPassword: ldap123
+
+dn: uid=ldap.viewer,ou=people,dc=ers,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+uid: ldap.viewer
+cn: Victor Viewer
+sn: Viewer
+mail: ldap.viewer@ers.local
+userPassword: ldap123
+
+dn: cn=ERS-Admins,ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: groupOfNames
+cn: ERS-Admins
+member: uid=ldap.admin,ou=people,dc=ers,dc=local
+
+dn: cn=ERS-Makers,ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: groupOfNames
+cn: ERS-Makers
+member: uid=ldap.maker,ou=people,dc=ers,dc=local
+
+dn: cn=ERS-Checkers,ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: groupOfNames
+cn: ERS-Checkers
+member: uid=ldap.checker,ou=people,dc=ers,dc=local
+
+dn: cn=ERS-Compliance,ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: groupOfNames
+cn: ERS-Compliance
+member: uid=ldap.compliance,ou=people,dc=ers,dc=local
+
+dn: cn=ERS-Viewers,ou=groups,dc=ers,dc=local
+objectClass: top
+objectClass: groupOfNames
+cn: ERS-Viewers
+member: uid=ldap.viewer,ou=people,dc=ers,dc=local

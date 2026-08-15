@@ -1,0 +1,20 @@
+[Unit]
+Description=ERS backend (Spring Boot)
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=ers
+Group=ers
+WorkingDirectory=/opt/ers
+EnvironmentFile=/opt/ers/ers-web.env
+ExecStart=/usr/lib/jvm/java-25-openjdk-amd64/bin/java -jar /opt/ers/ers-web.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
